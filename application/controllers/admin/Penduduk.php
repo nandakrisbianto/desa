@@ -21,6 +21,14 @@ class Penduduk extends CI_Controller
 
 	public function Tambah()
 	{
+		$penduduk = $this->penduduk_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($penduduk->rules());
+
+        if ($validation->run()) {
+            $penduduk->save();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }
 		$this->load->view('admin/penduduk/tambah');
 	}
 

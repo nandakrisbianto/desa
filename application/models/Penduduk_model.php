@@ -99,11 +99,7 @@ class Penduduk_model extends CI_Model
     public function save()
     {
         $post = $this->input->post();
-        $this->product_id = uniqid();
-        $this->name = $post["name"];
-        $this->price = $post["price"];
-        $this->description = $post["description"];
-        $this->db->insert($this->_table, $this);
+        $this->db->insert($this->_table, $post);
     }
 
     public function update()
